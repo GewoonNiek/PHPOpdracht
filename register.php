@@ -1,17 +1,19 @@
 <?php
 include("config.php");
 
-$con = $db->prepare("insert into user set username=?, password=?, email=?");
+$con = $db->prepare("insert into user set user_name=?, password=?, user_email=?, user_adress=?, user_zipcode=?");
 
 if ($_POST) {
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
     $password = md5(addslashes($_POST["password"]));
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
+    $adress = $_POST["address"];
+    $zipcode = $_POST["zipcode"];
 
-    if (!$username || !$password || !$email) {
+    if (!$username || !$password || !$email || !$adress || !$zipcode) {
         echo "All fields must be filled in...";
     } else {
-        $x = $con->execute(array($username, $password, $email));
+        $x = $con->execute(array($username, $password, $email, $adress, $zipcode));
 
         if ($x) {
             echo "Registration finished! U are being sent to the main page";
@@ -35,6 +37,14 @@ if ($_POST) {
         <tr>
             <td>Email:</td>
             <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <td>Zipcode:</td>
+            <td><input type="text" name="zipcode"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" name="address"></td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit"></td>
