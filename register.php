@@ -1,9 +1,10 @@
-<form?php include("config.php"); $con=$db->prepare("insert into user set username=?, password=?, email=?");
+<?php include("config.php"); $con=$db->prepare("insert into user set username=?, password=?, email=?");
 
     if ($_POST) {
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
     $password = md5(addslashes($_POST["password"]));
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
+    
 
     if (!$username || !$password || !$email) {
     echo "All fields must be filled in...";
@@ -16,7 +17,6 @@
     }
     }
     }
-
     ?>
 
     <form method="post" action="">

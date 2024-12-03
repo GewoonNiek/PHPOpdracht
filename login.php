@@ -3,7 +3,7 @@ session_start();
 include("config.php");
 
 if ($_POST) {
-    $con = $db->prepare("select * from user where username=? and password=?");
+    $con = $db->prepare("select * from user where user_name=? and password=?");
 
     $username = $_POST['username'];
     $password = md5(addslashes($_POST['password']));
@@ -40,6 +40,7 @@ if ($_POST) {
         </tr>
         <tr>
             <td><input type="submit" value="Login"></td>
+            <td><input type="button" value="Register"></td>
         </tr>
     </table>
 </form>';
