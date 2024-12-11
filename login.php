@@ -1,6 +1,7 @@
 <?php
 session_start();
-include("config.php");
+include("config.php");  
+echo '<link rel="stylesheet" href="style.css">';
 
 if ($_POST) {
     $con = $db->prepare("select * from user where user_name=? and password=?");
@@ -29,6 +30,7 @@ if ($_POST) {
     }
 } else {
     echo '<form method="post" action="">
+    <div>
     <table>
         <tr>
             <td>Username:</td>
@@ -43,6 +45,7 @@ if ($_POST) {
             <td><button type="button" onclick="window.location.href=\'register.php\';">Register</button></td>
         </tr>
     </table>
+    </div>
 </form>';
 }
 ?>

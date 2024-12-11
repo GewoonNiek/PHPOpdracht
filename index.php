@@ -1,7 +1,7 @@
 <?php
 include("config.php");
 
-$con = $db->prepare("select * from product");
+$con = $db->prepare("select * from artikel");
 $con->execute(array());
 
 $x = $con->fetchAll(PDO::FETCH_ASSOC);
