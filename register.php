@@ -1,11 +1,13 @@
 <?php include("config.php"); $con=$db->prepare("insert into user set username=?, password=?, email=?");
 
-$con = $db->prepare("insert into user set user_name=?, password=?, user_email=?, user_adress=?, user_zipcode=?");
+$con = $db->prepare("insert into user set user_name=?, user_email=?, user_adress=?, user_zipcode=?, password=?");
 
 if ($_POST) {
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES);
     $password = md5(addslashes($_POST["password"]));
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
+    $adress = htmlspecialchars($_POST["address"], ENT_QUOTES);
+    $zipcode = htmlspecialchars($_POST["zipcode"], ENT_QUOTES);
     
 
     if (!$username || !$password || !$email || !$adress || !$zipcode) {
@@ -36,12 +38,12 @@ if ($_POST) {
             <td><input type="text" name="email"></td>
         </tr>
         <tr>
-            <td>Zipcode:</td>
-            <td><input type="text" name="zipcode"></td>
-        </tr>
-        <tr>
             <td>Address:</td>
             <td><input type="text" name="address"></td>
+        </tr>
+        <tr>
+            <td>Zipcode:</td>
+            <td><input type="text" name="zipcode"></td>
         </tr>
         <tr>
             <td><input type="submit" value="Submit"></td>
