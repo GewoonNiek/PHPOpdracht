@@ -40,7 +40,7 @@ if ($_POST) {
         </tr>
         <tr>
             <td><input type="submit" value="Login"></td>
-            <td><input type="button" value="Register"></td>
+            <td><button type="button" onclick="window.location.href=\'register.php\';">Register</button></td>
         </tr>
     </table>
 </form>';

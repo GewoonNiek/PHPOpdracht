@@ -45,6 +45,7 @@ if ($_POST) {
         </tr>
         <tr>
             <td><input type="submit" value="Submit"></td>
+            <td><button type="button" onclick="Javascript:window.location.href = 'login.php';">Return to Login</button></td>
         </tr>
     </table>
 </form>
