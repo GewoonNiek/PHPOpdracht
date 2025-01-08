@@ -16,17 +16,17 @@ if ($_POST) {
     if ($d) {
         $_SESSION['user_name'] = $x['user_name'];
         $_SESSION['user_ID'] = $x['user_ID'];
+
+        if ($_SESSION) {
+            echo "Welcome " . $_SESSION['user_name'] . "<br>" . 
+                "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
+                "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 
+                "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
+        }
     } else {
         echo 'Incorrect password or username!';
+        header("refresh:1");
     }
-
-    if ($_SESSION) {
-        echo "Welcome " . $_SESSION['user_name'] . "<br>" . 
-            "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
-            "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 
-            "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
-    }
-    
 }
 else {
     echo '<form method="post" action="">
