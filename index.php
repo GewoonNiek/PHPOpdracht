@@ -2,11 +2,15 @@
 session_start();
 include("config.php");
 
-$userid= $_SESSION['user_ID'];
+$userid = $_SESSION['user_ID'];
 try {
     $con = $db->prepare("SELECT * FROM artikel");
     $con->execute();
     $articles = $con->fetchAll(PDO::FETCH_ASSOC);
+
+    echo "<button onclick=\"window.location.href='logout.php'\" style='position: absolute; top: 10px; left: 10px;'>Logout</button>" . 
+         "<button onclick=\"window.location.href='view_cart.php'\" style='position: absolute; top: 10px; left: 110px;'>Shoppingcart</button>" . 
+         "<br>";
 
     if (empty($articles)) {
         echo "<p>Er zijn momenteel geen artikelen beschikbaar.</p>";
@@ -30,7 +34,6 @@ try {
                 <?php } ?>
                 <br>
                 <br>
-                <!-- Formulier voor toevoegen aan winkelkar -->
                 <form method="post" action="shoppingcart.php" style="float: right;">
                     <input type="hidden" name="artikel_ID" value="<?php echo intval($article['artikel_ID']); ?>">
                     <input type="hidden" name="artikel_Name"
