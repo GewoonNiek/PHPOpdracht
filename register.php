@@ -13,7 +13,7 @@ if ($_POST) {
     if (!$username || !$password || !$email || !$adress || !$zipcode) {
         echo "All fields must be filled in...";
     } else {
-        $x = $con->execute(array($username, $password, $email, $adress, $zipcode));
+        $x = $con->execute(array($username, $email, $adress, $zipcode, $password));
 
         if ($x) {
             echo "Registration finished! U are being sent to the main page";
