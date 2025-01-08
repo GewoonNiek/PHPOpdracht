@@ -28,16 +28,9 @@ foreach ($cart as $item) {
         <td>Price: </td>
         <td>Amount: </td>
     </tr>
-    <?php
-    foreach ($cart as $item) {
-        ?>
         <td><?php $item['artikel_Name'] ?></td>
         <td><?php $item['price'] ?></td>
         <td><?php $item['amount'] ?></td>
-
-        <?php
-    }
-    ?>
     <br>
 </table>
 <?php
