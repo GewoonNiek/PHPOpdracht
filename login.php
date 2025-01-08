@@ -24,21 +24,21 @@ if ($_POST) {
             $x = $con->fetch(PDO::FETCH_ASSOC);
 
             if (empty($x)) {
-                $sql = "INSERT INTO shoppingcart (UserID) VALUES (?)";
+                $sql = "INSERT INTO shoppingcart (UserID, Date) VALUES (?, NOW())";
                 $con = $db->prepare($sql);
                 $con->execute(array($_SESSION['user_ID']));
+
             }
-            echo "Welcome " . $_SESSION['user_name'] . "<br>" . 
-            "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
-            "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 
-            "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
+            echo "Welcome " . $_SESSION['user_name'] . "<br>" .
+                "<button onclick=\"window.location.href='logout.php'\">Logout</button> " .
+                "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " .
+                "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
         }
     } else {
         echo 'Incorrect password or username!';
         header("refresh:1");
     }
-}
-else {
+} else {
     echo '<form method="post" action="">
     <div>
     <table>
