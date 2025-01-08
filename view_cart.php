@@ -21,11 +21,8 @@ foreach ($cart as $item) {
     $con = $db->prepare($sql);
     $con->execute(array($item['product_id']));
     $product = $con->fetch(PDO::FETCH_ASSOC);
-}
-
-
-?>
-<table style="border: 1px solid;">
+    ?>
+    <table style="border: 1px solid;">
     <tr>
         <td>Product name: </td>
         <td>Price: </td>
@@ -43,3 +40,8 @@ foreach ($cart as $item) {
     ?>
     <br>
 </table>
+<?php
+}
+
+
+?>
