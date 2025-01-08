@@ -34,6 +34,7 @@ $cart = $con->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo $product['artikel_Name'] ?></td>
             <td><?php echo $product['price'] ?></td>
             <td><?php echo $item['amount'] ?></td>
+            <td><a href="remove_from_cart.php?id=<?php echo $item['id'] ?>">remove item</a>
 
         </tr>
         <br>
@@ -42,5 +43,4 @@ $cart = $con->fetchAll(PDO::FETCH_ASSOC);
 
 
     ?>
-    </table>
-   
+</table>
