@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("config.php");  
+include("config.php");
 echo '<link rel="stylesheet" href="style.css">';
 
 if ($_POST) {
@@ -23,7 +23,8 @@ if ($_POST) {
 
     if ($_SESSION) {
         echo "Welcome " . $_SESSION['username'] . " <a href='logout.php'>Logout</a>
-        <a href='changeUserdata.php?id=" . $_SESSION['id'] . "'>Change user information</a>";
+        <a href='changeUserdata.php?id=" . $_SESSION['id'] . "'>Change user information</a>
+        <a href='index.php?id=" . $_SESSION['id'] . "'>Products</a>";
         if ($_SESSION['role'] == 1) {
             echo " <a href='admin.php'>Admin Panel</a>";
         }
