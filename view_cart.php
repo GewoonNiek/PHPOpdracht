@@ -37,9 +37,10 @@ $cart = $con->fetchAll(PDO::FETCH_ASSOC);
 
         </tr>
         <br>
-    </table>
-    <?php
+        <?php
     }
 
 
     ?>
+    </table>
+   
