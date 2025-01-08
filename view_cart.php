@@ -16,25 +16,30 @@ $con = $db->prepare($sql);
 $con->execute(array($x['shoppingcart_ID']));
 $cart = $con->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($cart as $item) {
-    $sql = "SELECT * FROM artikel WHERE artikel_ID = ?";
-    $con = $db->prepare($sql);
-    $con->execute(array($item['product_id']));
-    $product = $con->fetch(PDO::FETCH_ASSOC);
-    ?>
-    <table style="border: 1px solid;">
+?>
+<table style="border: 1px solid;">
+    <tr>
+        <td>Product name: </td>
+        <td>Price: </td>
+        <td>Amount: </td>
+    </tr>
+    <?php
+    foreach ($cart as $item) {
+        $sql = "SELECT * FROM artikel WHERE artikel_ID = ?";
+        $con = $db->prepare($sql);
+        $con->execute(array($item['product_id']));
+        $product = $con->fetch(PDO::FETCH_ASSOC);
+        ?>
         <tr>
-            <td>Product name: </td>
-            <td>Price: </td>
-            <td>Amount: </td>
+            <td><?php echo $product['artikel_Name'] ?></td>
+            <td><?php echo $product['price'] ?></td>
+            <td><?php echo $item['amount'] ?></td>
+
         </tr>
-        <td><?php $item['artikel_Name'] ?></td>
-        <td><?php $item['price'] ?></td>
-        <td><?php $item['amount'] ?></td>
         <br>
     </table>
     <?php
-}
+    }
 
 
-?>
+    ?>
