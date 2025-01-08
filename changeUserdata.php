@@ -2,8 +2,8 @@
 include("config.php");
 session_start();
 
-$id = $_GET['id'];
-$con = $db->prepare('select * from user where id=?');
+$id = $_GET['user_ID'];
+$con = $db->prepare('select * from user where user_ID=?');
 $con->execute(array($id));
 
 $x = $con->fetch(PDO::FETCH_ASSOC);
@@ -15,7 +15,7 @@ if ($_POST) {
     $zipcode = htmlspecialchars($_POST['user_zipcode'], ENT_QUOTES);
     $adress = htmlspecialchars($_POST['user_adress'], ENT_QUOTES);
 
-    $query = $db->prepare('update user set user_name=?, password=?, user_email=?, user_adress=?, user_zipcode=? where id=?');
+    $query = $db->prepare('update user set user_name=?, password=?, user_email=?, user_adress=?, user_zipcode=? where user_ID=?');
     $z = $query->execute(array($username, $password, $email, $adress, $zipcode, $id));
 
 
@@ -26,7 +26,7 @@ if ($_POST) {
         echo 'Something went wrong!';
     }
 } else {
-    if ($_SESSION['id'] == $id) {
+    if ($_SESSION['user_ID'] == $id) {
         echo '<form action="" method="post">
     <table>
         <tr>
@@ -58,6 +58,4 @@ if ($_POST) {
         echo 'Page not found!';
     }
 }
-
-
 ?>

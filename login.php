@@ -23,7 +23,7 @@ if ($_POST) {
 
     if ($_SESSION) {
         echo "Welcome " . $_SESSION['username'] . " <a href='logout.php'>Logout</a>
-        <a href='change.php?id=" . $_SESSION['id'] . "'>Change user information</a>";
+        <a href='changeUserdata.php?id=" . $_SESSION['id'] . "'>Change user information</a>";
         if ($_SESSION['role'] == 1) {
             echo " <a href='admin.php'>Admin Panel</a>";
         }
