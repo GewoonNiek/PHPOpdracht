@@ -24,10 +24,10 @@ try {
                 </h2>
                 <br>
                 <?php if (!empty($article['artikel_IMG'])) { ?>
-                    <img src="image.php?artikel_ID=<?php echo intval($article['artikel_ID']); ?>" alt="Image"
-                        style="width:100%; height:100%; max-width:100px; max-height:100px; object-fit:cover;">
+                <img src="<?php echo htmlspecialchars($article['artikel_IMG'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image"
+                style="width:100%; height:100%; max-width:100px; max-height:100px; object-fit:cover;">
                 <?php } else { ?>
-                    <p>No image available.</p>
+                <p>No image available.</p>
                 <?php } ?>
 
                 <form action="remove_article.php" method="POST" style="float: right;">
