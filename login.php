@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("config.php");
-echo '<link rel="stylesheet" href="style.css">';
 
 if ($_POST) {
     $con = $db->prepare("select * from user where user_name=? and password=?");
@@ -19,9 +18,9 @@ if ($_POST) {
 
         if ($_SESSION) {
             echo "Welcome " . $_SESSION['user_name'] . "<br>" . 
-                "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
-                "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 
-                "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
+            "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
+            "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 
+            "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
         }
     } else {
         echo 'Incorrect password or username!';
