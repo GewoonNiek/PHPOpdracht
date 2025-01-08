@@ -15,6 +15,7 @@ if ($_POST) {
     if ($d) {
         $_SESSION['user_name'] = $x['user_name'];
         $_SESSION['user_ID'] = $x['user_ID'];
+        $_SESSION['adminKey'] = $x['adminKey'];
 
         if ($_SESSION) {
             //make shoppingcart in db if not exists
