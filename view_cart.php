@@ -23,24 +23,24 @@ foreach ($cart as $item) {
     $product = $con->fetch(PDO::FETCH_ASSOC);
     ?>
     <table style="border: 1px solid;">
-    <tr>
-        <td>Product name: </td>
-        <td>Price: </td>
-        <td>Amount: </td>
-    </tr>
-    <?php
-    foreach ($cart as $item) {
-        ?>
-        <td><?php $item['artikel_Name'] ?></td>
-        <td><?php $item['price'] ?></td>
-        <td><?php $item['amount'] ?></td>
-
+        <tr>
+            <td>Product name: </td>
+            <td>Price: </td>
+            <td>Amount: </td>
+        </tr>
         <?php
-    }
-    ?>
-    <br>
-</table>
-<?php
+        foreach ($cart as $item) {
+            ?>
+            <td><?php $item['artikel_Name'] ?></td>
+            <td><?php $item['price'] ?></td>
+            <td><?php $item['amount'] ?></td>
+
+            <?php
+        }
+        ?>
+        <br>
+    </table>
+    <?php
 }
 
 
