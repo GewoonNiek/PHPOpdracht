@@ -31,7 +31,7 @@ if ($_POST) {
     <table>
         <tr>
             <td>Username:</td>
-            <td><input type="text" name="username" value="' . $x['user_name'] . '"></td>
+            <td><input type="text" name="user_name" value="' . $x['user_name'] . '"></td>
         </tr>
         <tr>
             <td>Password:</td>
@@ -39,15 +39,15 @@ if ($_POST) {
         </tr>
         <tr>
             <td>Email:</td>
-            <td><input type="text" name="username" value="' . $x['user_email'] . '"></td>
+            <td><input type="text" name="user_email" value="' . $x['user_email'] . '"></td>
         </tr>
         <tr>
             <td>Address:</td>
-            <td><input type="text" name="username" value="' . $x['user_adress'] . '"></td>
+            <td><input type="text" name="user_adress" value="' . $x['user_adress'] . '"></td>
         </tr>
         <tr>
             <td>Zipcode:</td>
-            <td><input type="text" name="username" value="' . $x['user_zipcode'] . '"></td>
+            <td><input type="text" name="user_zipcode" value="' . $x['user_zipcode'] . '"></td>
         </tr>
         <tr>
             <td><input type="submit" value="Update info"></td>
