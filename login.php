@@ -18,6 +18,17 @@ if ($_POST) {
         $_SESSION['adminKey'] = $x['adminKey'];
 
         if ($_SESSION) {
+            //make shoppingcart in db if not exists
+            $sql = "SELECT shoppingcart_ID FROM shoppingcart WHERE UserID = ?";
+            $con = $db->prepare($sql);
+            $con->execute(array($_SESSION['user_ID']));
+            $x = $con->fetch(PDO::FETCH_ASSOC);
+
+            if (empty($x)) {
+                $sql = "INSERT INTO shoppingcart (UserID) VALUES (?)";
+                $con = $db->prepare($sql);
+                $con->execute(array($_SESSION['user_ID']));
+            }
             echo "Welcome " . $_SESSION['user_name'] . "<br>" . 
             "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
             "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 

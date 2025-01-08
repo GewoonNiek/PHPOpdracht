@@ -2,6 +2,7 @@
 session_start();
 include("config.php");
 
+$userid= $_SESSION['user_ID'];
 try {
     $con = $db->prepare("SELECT * FROM artikel");
     $con->execute();
