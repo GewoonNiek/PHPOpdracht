@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+session_start();
 
 $con1 = $db->prepare("insert into song set SongName=?");
 $con2 = $db->prepare("insert into artist set artist_name=?");
