@@ -1,4 +1,4 @@
-<?php include("config.php"); $con=$db->prepare("insert into user set username=?, password=?, email=?");
+<?php include("config.php");
 
 $con = $db->prepare("insert into user set user_name=?, user_email=?, user_adress=?, user_zipcode=?, password=?");
 
@@ -8,7 +8,7 @@ if ($_POST) {
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
     $adress = htmlspecialchars($_POST["address"], ENT_QUOTES);
     $zipcode = htmlspecialchars($_POST["zipcode"], ENT_QUOTES);
-    
+
 
     if (!$username || !$password || !$email || !$adress || !$zipcode) {
         echo "All fields must be filled in...";
@@ -16,8 +16,8 @@ if ($_POST) {
         $x = $con->execute(array($username, $password, $email, $adress, $zipcode));
 
         if ($x) {
-            echo "Registration finished! U are being sent to the main page";
-            header("refresh:5; url=index.php");
+            echo "Registration finished! U are being sent to the login page";
+            header("refresh:5; url=login.php");
         }
     }
 }
@@ -47,7 +47,8 @@ if ($_POST) {
         </tr>
         <tr>
             <td><input type="submit" value="Submit"></td>
-            <td><button type="button" onclick="Javascript:window.location.href = 'login.php';">Return to Login</button></td>
+            <td><button type="button" onclick="Javascript:window.location.href = 'login.php';">Return to Login</button>
+            </td>
         </tr>
     </table>
 </form>
