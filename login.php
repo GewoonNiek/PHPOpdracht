@@ -14,22 +14,21 @@ if ($_POST) {
 
     $d = $con->rowCount();
     if ($d) {
-        $_SESSION['username'] = $x['username'];
-        $_SESSION['id'] = $x['id'];
-        $_SESSION['role'] = $x['role'];
+        $_SESSION['user_name'] = $x['user_name'];
+        $_SESSION['user_ID'] = $x['user_ID'];
     } else {
         echo 'Incorrect password or username!';
     }
 
     if ($_SESSION) {
-        echo "Welcome " . $_SESSION['username'] . " <a href='logout.php'>Logout</a>
-        <a href='changeUserdata.php?id=" . $_SESSION['id'] . "'>Change user information</a>
-        <a href='index.php?id=" . $_SESSION['id'] . "'>Products</a>";
-        if ($_SESSION['role'] == 1) {
-            echo " <a href='admin.php'>Admin Panel</a>";
-        }
+        echo "Welcome " . $_SESSION['user_name'] . "<br>" . 
+            "<button onclick=\"window.location.href='logout.php'\">Logout</button> " . 
+            "<button onclick=\"window.location.href='changeUserdata.php?user_ID=" . $_SESSION['user_ID'] . "'\">Change user information</button> " . 
+            "<button onclick=\"window.location.href='index.php?user_ID=" . $_SESSION['user_ID'] . "'\">Products</button>";
     }
-} else {
+    
+}
+else {
     echo '<form method="post" action="">
     <div>
     <table>

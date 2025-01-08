@@ -2,9 +2,10 @@
 include("config.php");
 session_start();
 
-$id = $_GET['user_ID'];
+
 $con = $db->prepare('select * from user where user_ID=?');
 $con->execute(array($id));
+$id = $_GET['user_ID'];
 
 $x = $con->fetch(PDO::FETCH_ASSOC);
 
