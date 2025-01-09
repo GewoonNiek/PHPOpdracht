@@ -16,6 +16,7 @@ $con = $db->prepare($sql);
 $con->execute(array($x['shoppingcart_ID']));
 $cart = $con->fetchAll(PDO::FETCH_ASSOC);
 
+echo "<button onclick=\"window.location.href='index.php'\">Back to menu</button>";
 ?>
 <table style="border: 1px solid;">
     <tr>
@@ -37,7 +38,6 @@ $cart = $con->fetchAll(PDO::FETCH_ASSOC);
             <td><a href="remove_from_cart.php?id=<?php echo $item['id'] ?>">remove item</a>
 
         </tr>
-        <br>
         <?php
     }
 

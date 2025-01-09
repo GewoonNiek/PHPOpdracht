@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['artikel_ID'])) {
     }
 
     echo "<p>Product succesvol toegevoegd aan de winkelkar!</p>";
-    echo '<a href="index.php">Ga terug naar de artikelen</a>';
-    echo '<a href="view_cart.php">Bekijk winkelkar</a>';
+    echo "<button onclick=\"window.location.href='index.php'\">Go back to menu</button> " . 
+    "<button onclick=\"window.location.href='view_cart.php'\">Show shoppingcar</button> ";
 } else {
     echo "<p>Ongeldig verzoek.</p>";
 }
